@@ -112,11 +112,4 @@ repositories/ חבילות פייתון:
 
 11.  [Prophet](https://github.com/facebook/prophet) גם  [פה](https://facebook.github.io/prophet/)
 
-  
-
-מקווה שזה יעזור להתחלה (:
-
-  
-
-יונתן
 <div>
