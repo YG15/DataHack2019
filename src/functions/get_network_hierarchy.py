@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 
-def get_network_hierarchy(network_df)
+def get_network_hierarchy(network_df):
   
   input a table of network connection
   output the same table with additional columns representing the level of hierarchy in the net
