@@ -113,3 +113,15 @@ repositories/ חבילות פייתון:
 11.  [Prophet](https://github.com/facebook/prophet) גם  [פה](https://facebook.github.io/prophet/)
 
 <div>
+  For time-series: Distribution ChangePoint Detection:
+  1. Review paper + implementation of several models in python:
+  https://arxiv.org/pdf/1801.00718.pdf
+  https://github.com/deepcharles/ruptures
+  
+  2. changepoint detectioin - python package that wraps and R package for changepoint detection + explanations
+  http://members.cbio.mines-paristech.fr/~thocking/change-tutorial/RK-CptWorkshop.html
+  https://pypi.org/project/changepoint/
+  
+  3. Online changepoint detection - paper + implementation in python
+  https://www.icms.org.uk/downloads/CompStratTalks/KNOBLAUCH.pdf
+  https://github.com/alan-turing-institute/rbocpdms
