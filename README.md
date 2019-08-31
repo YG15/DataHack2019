@@ -114,6 +114,7 @@ repositories/ חבילות פייתון:
 
 <div>
   For time-series: Distribution ChangePoint Detection:
+  
   1. Review paper + implementation of several models in python:
   https://arxiv.org/pdf/1801.00718.pdf
   https://github.com/deepcharles/ruptures
