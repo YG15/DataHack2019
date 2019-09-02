@@ -12,10 +12,10 @@ def get_network_hierarchy(network_df):
             they won't be any shared ids across networks
   """
   # Correct columns values from float tp integers
-  network_df['full_service_device_id'] = [str(int(network))+'_'+str(int(device)) if ~np.isnan(device) else None for network,device in zip(network_df.network_id,
-                                                                                                           network_df.service_device_id)]
-  network_df['full_device_id']         = [str(int(network))+'_'+str(int(device)) if ~np.isnan(device) else None for network,device in zip(network_df.network_id,
-                                                                                                           network_df.device_id)]
+  network_df['full_service_device_id'] = [str(int(network))+'_'+str(int(device)) if ~np.isnan(device) else None\
+                                          for network,device in zip(network_df.network_id,network_df.service_device_id)]
+  network_df['full_device_id']         = [str(int(network))+'_'+str(int(device)) if ~np.isnan(device) else None\
+                                          for network,device in zip(network_df.network_id,network_df.device_id)]
   
   output_devices = list(network_df.full_device_id.unique())
   input_devices  = list(network_df.full_service_device_id.unique())
