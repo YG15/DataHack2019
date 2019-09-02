@@ -6,8 +6,10 @@ def get_network_hierarchy(network_df):
   """
   input: a table of network connection
   output: the same table with additional columns representing the level of hierarchy in the net
-  IPORTANT: the function assumes there each device has it unique id regardless the network it is in, if there are duplicates ids, the function will results incorrect results
-            thus it is recommended to run the function on each network seperatly or to change the devices ids so they won't be any shared ids across networks
+  IMPORTANT: the function assumes there each device has it unique id regardless the network it is in, if there are
+  duplicates ids, the function will results incorrect results
+            thus it is recommended to run the function on each network separately or to change the devices ids so
+            they won't be any shared ids across networks
   """
   # Correct columns values from float tp integers
   network_df['service_device_id'] = network_df.service_device_id.apply(lambda x: int(x))
