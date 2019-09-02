@@ -4,6 +4,8 @@ Converted from .mat to .csv.
 data (X) and outlier labels (y) concatenated with y as last column. 
 Read with no headers. 
 
+** EDIT: After playing with the ForestCover dataset and getting very poor results with both DBScan and isolated forest, I think this is a bad dataset for an unsupervised oulier detection task (as opposed to supervised classification). This is because the data points labeled as outliers are easily separable from the others, but are too clustered together in one part of the feature space to qualify as outliers as they are defined by these algorithms - i.e., being sufficiently far from other data points. In other words, the algorithms found outliers all around the sparse outskirts of the feature space while the labeled outliers were all found in one side of it. 
+** 
 
 Dataset		points		dim		outliers
 ____________________________________________________________
@@ -16,7 +18,7 @@ Dataset information
 The original musk dataset from UCI machine learning repository contains several musk and non-musk classes. The non-musk classes j146, j147, and 252 are combined to form the inliers, while the musk classes 213 and 211 are added as outliers without downsampling. Other classes are discarded. 
 
 Source (citation)
-C. C. Aggarwal and S. Sathe, ìTheoretical foundations and algorithms for outlier ensembles.î ACM SIGKDD Explorations Newsletter, vol. 17, no. 1, pp. 24ñ47, 2015.
+C. C. Aggarwal and S. Sathe, ‚ÄúTheoretical foundations and algorithms for outlier ensembles.‚Äù ACM SIGKDD Explorations Newsletter, vol. 17, no. 1, pp. 24‚Äì47, 2015.
 
 Downloads
 File: musk.mat
@@ -31,9 +33,9 @@ Dataset Information
 The original ForestCover/Covertype dataset from UCI machine learning repository is a multiclass classification dataset. It is used in predicting forest cover type from cartographic variables only (no remotely sensed data). This study area includes four wilderness areas located in the Roosevelt National Forest of northern Colorado. These areas represent forests with minimal human-caused disturbances, so that existing forest cover types are more a result of ecological processes rather than forest management practices. This dataset has 54 attributes (10 quantitative variables, 4 binary wilderness areas and 40 binary soil type variables). Here, outlier detection dataset is created using only 10 quantitative attributes. Instances from class 2 are considered as normal points and instances from class 4 are anomalies. The anomalies ratio is 0.9%. Instances from the other classes are omitted.
 
 Source (citation)
-Liu, Fei Tony, Kai Ming Ting, and Zhi-Hua Zhou. ìIsolation forest.î 2008 Eighth IEEE International Conference on Data Mining. IEEE, 2008.
+Liu, Fei Tony, Kai Ming Ting, and Zhi-Hua Zhou. ‚ÄúIsolation forest.‚Äù 2008 Eighth IEEE International Conference on Data Mining. IEEE, 2008.
 
-K. M. Ting, J. T. S. Chuan, and F. T. Liu. ìMass: A New Ranking Measure for Anomaly Detection.ì, IEEE Transactions on Knowledge and Data Engineering, 2009.
+K. M. Ting, J. T. S. Chuan, and F. T. Liu. ‚ÄúMass: A New Ranking Measure for Anomaly Detection.‚Äú, IEEE Transactions on Knowledge and Data Engineering, 2009.
 
 Kai Ming Ting, Guang-Tong Zhou, Fei Tony Liu & Tan Swee Chuan. (2010). Mass Estimation and Its Applications. Proceedings of The 16th ACM SIGKDD Conference on Knowledge Discovery and Data Mining 2010. pp. 989-998.
 
