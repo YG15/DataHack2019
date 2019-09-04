@@ -2,7 +2,7 @@ Kaggle credit card fraud detection dataset
 Download from https://www.kaggle.com/mlg-ulb/creditcardfraud/downloads/creditcardfraud.zip/3 
 (not on repo).
 
-Dataset		          points		dim		outliers
+Dataset		         points		dim		outliers
 ____________________________________________________________
 Kaggele credit card	284807		31		492 (0.17%)
 
