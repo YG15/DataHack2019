@@ -1,4 +1,14 @@
-Outlier detection data taken from: http://odds.cs.stonybrook.edu/
+Kaggle credit card fraud detection dataset
+Download from https://www.kaggle.com/mlg-ulb/creditcardfraud/downloads/creditcardfraud.zip/3 
+(not on repo).
+
+Dataset		          points		dim		outliers
+____________________________________________________________
+Kaggele credit card	284807		31		492 (0.17%)
+
+
+
+Outlier detection data sets taken from: http://odds.cs.stonybrook.edu/
 
 Converted from .mat to .csv. 
 data (X) and outlier labels (y) concatenated with y as last column. http and smtp datasets were combined. 
