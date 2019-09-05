@@ -12,6 +12,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.decomposition import PCA
+import seaborn as sns
 
 #%%  Run IF function
 def run_IF(df):
@@ -32,26 +33,31 @@ df_features.drop(['model','manufacturer','operating_system','operating_system_ve
 df_features.fillna(0, inplace=True)
 
 #%% Read features file (v3)
-df_features = pd.read_csv('features_v3.csv')
-na_devices = df_features['real_device_'].isna()
+df_features = pd.read_csv('features_v3 (3).csv')
+#na_devices = df_features['real_device_'].isna()
 
 # Drop devices that don't appear in any network
-df_features.drop(df_features[na_devices].index, axis=0, inplace = True)
+#df_features.drop(df_features[na_devices].index, axis=0, inplace = True)
 
-df_features['device_id']  = [ str(val).split('.')[0] for val in df_features.real_device_]
+#df_features['device_id']  = [ str(val).split('.')[0] for val in df_features.real_device_]
 # Drop columns I can't use
-df_features.drop(['Unnamed: 0','real_device','real_device_'], inplace=True, axis=1)
+df_features.drop(['Unnamed: 0'], inplace=True, axis=1)
 
 # Replace NaNs with 0
 #df_features.fillna(0, inplace=True)
 
 # Some more tweaking
-df_features.host_nunique = np.log10(df_features.host_nunique+1)
-df_features.host_ip_nunique = np.log10(df_features.host_ip_nunique+1)
-df_features.port_dst_nunique = np.log10(df_features.port_dst_nunique+1)
-df_features.timestamp_count = np.log10(df_features.timestamp_count+1)
-df_features.timestamp_range = np.log10(df_features.timestamp_range+1)
+#df_features.host_nunique = np.log10(df_features.host_nunique+1)
+#df_features.host_ip_nunique = np.log10(df_features.host_ip_nunique+1)
+#df_features.port_dst_nunique = np.log10(df_features.port_dst_nunique+1)
+#df_features.timestamp_count = np.log10(df_features.timestamp_count+1)
+#df_features.timestamp_range = np.log10(df_features.timestamp_range+1)
 
+#%% Drop features
+df_features.drop(list(df_features.columns[9:27].values), inplace=True, axis=1)
+
+#%% Select features
+X = df_features[['network_id','device_id',]]
 
 #%% Run IF on entire dataset
 
@@ -63,8 +69,8 @@ df_features.timestamp_range = np.log10(df_features.timestamp_range+1)
 #df_features.drop(['type'], axis=1, inplace=True)
 
 # Create training data
-X = df_features.copy()
-X.drop(['device_id'], inplace=True, axis=1)
+#X = df_features.copy()
+#X.drop(['device_id'], inplace=True, axis=1)
 
 # Run model
 anomaly_scores = run_IF(X)
