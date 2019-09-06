@@ -1,0 +1,41 @@
+version: '3.6'
+
+services:
+  db:
+    image: mariadb:10.1
+    container_name: datahack-db
+    environment:
+      - MYSQL_DATABASE=armis
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=user
+      - MYSQL_ROOT_PASSWORD=fKc8dlZqhNOucISGiZA6
+    volumes:
+      #- ./db:/var/lib/mysql
+      - /mnt/iso/dataset_datahack/db:/var/lib/mysql
+      - /mnt/iso:/mnt/iso
+  grafana:
+    image: grafana/grafana
+    container_name: datahack-grafana
+    restart: always
+    ports:
+     - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-worldmap-panel,grafana-piechart-panel
+      - VIRTUAL_HOST=datahack.gnethomelinux.com
+      - LETSENCRYPT_HOST=datahack.gnethomelinux.com
+      - LETSENCRYPT_EMAIL=guysoft@gmail.com
+      - VIRTUAL_PORT=3000
+      - HTTPS_METHOD=noredirect
+
+    #volumes:
+    #  #- ./grafana-db:/var/lib/grafana
+    #  #- ./grafana-log:/var/log/grafana
+    #  #- ./grafana-conf:/etc/grafana
+    links:
+      -  "db:db"
+
+
+
+
