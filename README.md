@@ -1,6 +1,47 @@
 # DataHack2019
-Datahack 2019 project on Armis challenge
 
+![alt text][logo]
+
+[logo]: https://github.com/YG15/DataHack2019/raw/master/media/logo.png "Logo"
+
+
+Datahack 2019 project on Armis challenge
+[The challange ](https://github.com/armis-security/DataHack2019).
+
+
+## How to run
+
+### Overview
+There are three parts to the code.
+* Getting the featues
+* Running the model
+* Explainability code
+ 
+ ### Getting the featues
+ 
+ 1. download the  the [csv files](https://github.com/armis-security/DataHack2019#the-data)
+ 2. Upload
+ 
+ 
+ ### Running the model
+ 
+ From the featues step you will get a list of features we engeneered.
+You will have to run it as a notbook in Google Collab beacuse the sessin csv is ~7GB of data.
+
+The upload to collab takes about 30 mintues.
+
+1. [Open this notebook](https://github.com/YG15/DataHack2019/blob/master/src/notebook/The_whale_and_the_petunias_pipeline.ipynb) and connect github to google collab. You can also use this button: [Deploy to google Collab](https://colab.research.google.com/github/YG15/DataHack2019/blob/master/The_whale_and_the_petunias_pipeline.ipynb)
+2. 
+
+ 
+ 
+ 
+
+### requirements
+
+
+
+## Resources (Hebrew)
 
 <div dir="rtl">
 
