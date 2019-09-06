@@ -1,0 +1,23 @@
+CREATE TABLE sessions (id INT, network_id INT, device_id VARCHAR(100), timestamp datetime, host VARCHAR(100), host_ip VARCHAR(100), port_dst INT, transport_protocol VARCHAR(10), service_device_id INT, packets_count INT, outbound_bytes_count INT, inbound_bytes_count INT, packet_loss FLOAT, retransmit_count INT, latency VARCHAR(100), session_count INT, outbound_packets_count INT, inbound_packets_count INT, outbound_bytes_max INT, outbound_bytes_min INT, outbound_bytes_mean FLOAT, outbound_bytes_median FLOAT, outbound_bytes_stddev FLOAT, inbound_bytes_max INT, inbound_bytes_min INT, inbound_bytes_mean FLOAT, inbound_bytes_median FLOAT, inbound_bytes_stddev FLOAT, outbound_packet_size_max FLOAT, outbound_packet_size_min FLOAT, outbound_packet_size_mean FLOAT, outbound_packet_size_median FLOAT, outbound_packet_size_stddev FLOAT, inbound_packet_size_max FLOAT, inbound_packet_size_min FLOAT, inbound_packet_size_mean FLOAT, inbound_packet_size_median FLOAT, inbound_packet_size_stddev FLOAT );
+
+
+ CREATE TABLE devices ( id VARCHAR(100), network_id VARCHAR(100), device_id VARCHAR(100), type VARCHAR(100), model VARCHAR(100), manufacturer VARCHAR(100), operating_system VARCHAR(100), operating_system_version VARCHAR(100) );
+ 
+
+mysql -uroot -pfKc8dlZqhNOucISGiZA6 --local-infile armis -e "LOAD DATA LOCAL INFILE '/mnt/iso/dataset_datahack/all_sessions.csv'  INTO TABLE sessions  FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n'"
+
+
+LOAD DATA INFILE "/mnt/iso/dataset_datahack/all_sessions.csv"
+  INTO TABLE sessions
+  FIELDS TERMINATED BY ','
+  LINES TERMINATED BY '\n'
+  (id,network_id,device_id,@epochtime,host,host_ip,port_dst,transport_protocol,service_device_id,packets_count,outbound_bytes_count,inbound_bytes_count,packet_loss,retransmit_count,latency,session_count,outbound_packets_count,inbound_packets_count,outbound_bytes_max,outbound_bytes_min,outbound_bytes_mean,outbound_bytes_median,outbound_bytes_stddev,inbound_bytes_max,inbound_bytes_min,inbound_bytes_mean,inbound_bytes_median,inbound_bytes_stddev,outbound_packet_size_max,outbound_packet_size_min,outbound_packet_size_mean,outbound_packet_size_median,outbound_packet_size_stddev,inbound_packet_size_max,inbound_packet_size_min,inbound_packet_size_mean,inbound_packet_size_median,inbound_packet_size_stddev)
+  set timestamp = FROM_UNIXTIME( @epochtime ) 
+;
+
+LOAD DATA INFILE "/mnt/iso/dataset_datahack/all_devices.csv"
+  INTO TABLE sessions
+  FIELDS TERMINATED BY ','
+  LINES TERMINATED BY '\n' ;
+
+CREATE INDEX ix_timestamp ON armis.sessions(timestamp);
