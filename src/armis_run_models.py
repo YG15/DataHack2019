@@ -66,6 +66,7 @@ X = df_features[['network_id', 'device_id', 'hostnunique', 'host_ipnunique', 'po
                  'packets_countnanmedian']]
 
 
+
 #%% Run IF on entire dataset
 # Run model
 anomaly_scores = run_IF(X)
