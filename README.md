@@ -13,9 +13,9 @@ Datahack 2019 project on Armis challenge
 
 ### Overview
 There are three parts to the code.
-* Getting the featues - get_final_features.py
-* Running the model - submit_final.py
-* Explainability code - at the moment in ``notebook/model_train_submission.ipynb``, needs to be cleaned up
+* Getting the featues - ``get_final_features.py``
+* Running the model - ``submit_final.py``
+* Explainability code - ``shap_values.py``
  
  
  ## Quick reproduce of the results
@@ -48,6 +48,43 @@ sudo pip3 install -r requirements.txt
 python3 ./get_final_features.py
 ```
 
+
+### Explainability code
+
+The way we used to understand what features are effecting the ones signalling the anomaly is with [SHAP (SHapley Additive exPlanations)](https://github.com/slundberg/shap). The example code pics a single machine and returns the fraction of how much each of the 7 features in ``selected_col`` effected the descision.
+
+to run it use:
+
+```
+wget http://unofficialpi.org/share/datahack/only_session_Features_no_log.csv
+wget https://raw.githubusercontent.com/YG15/DataHack2019/master/src/requirements.txt
+wget https://raw.githubusercontent.com/YG15/DataHack2019/master/src/final/submit_final.py
+wget https://raw.githubusercontent.com/YG15/DataHack2019/master/src/final/shap_values.py
+sudo pip3 install -r requirements.txt
+python3 ./submit_final.py
+```
+
+Output is:
+
+```
+[[ 0.         -0.00414068 -0.00794539 -0.00891363  0.00211455  0.00373532
+   0.01469779 -0.03151073]]
+```
+
+Which corresponds to:
+
+```
+selected_col = ['network_id',
+                'device_id',
+                'host_ipnunique',
+                'outbound_bytes_countnanmax',
+                'timestampcount',
+                'timestampnunique',
+                'timestamprange',
+                'transport_protocolnunique',
+                'port_dstnunique']
+```
+respectively.
  
  ### Running the model - the method we used in the hackathon
  
