@@ -16,6 +16,8 @@ There are three parts to the code.
 * Getting the featues - ``get_final_features.py``
 * Running the model - ``submit_final.py``
 * Explainability code - ``shap_values.py``
+Media:
+* [The presentation we gave to armis](https://github.com/YG15/DataHack2019/blob/master/media/whales_final_nimnim.pptx?raw=true)
  
  
  ## Quick reproduce of the results
