@@ -2,3 +2,6 @@ numpy
 pandas
 sklearn
 matplotlib
+shap
+tqdm
+dill
