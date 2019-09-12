@@ -13,8 +13,8 @@ Datahack 2019 project on Armis challenge
 
 ### Overview
 There are three parts to the code.
-* Getting the featues - get_final_features.py
-* Running the model - submit_final.py
+* Getting the featues - ``get_final_features.py``
+* Running the model - ``submit_final.py``
 * Explainability code - ``shap_values.py``
  
  
