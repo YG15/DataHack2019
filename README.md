@@ -9,36 +9,56 @@ Datahack 2019 project on Armis challenge
 [The challange ](https://github.com/armis-security/DataHack2019).
 
 
-## How to run
+## What are the things in this repo
 
 ### Overview
 There are three parts to the code.
-* Getting the featues
-* Running the model
-* Explainability code
- 
- ### Getting the featues
- 
- 1. download the  the [csv files](https://github.com/armis-security/DataHack2019#the-data)
- 2. Upload
+* Getting the featues - get_final_features.py
+* Running the model - submit_final.py
+* Explainability code - at the moment in ``notebook/model_train_submission.ipynb``, needs to be cleaned up
  
  
- ### Running the model
+ ## Quick reproduce of the results
+ As long as the leaderboard is working you can run this code and it will actually submit the result
  
- From the featues step you will get a list of features we engeneered.
-You will have to run it as a notbook in Google Collab beacuse the sessin csv is ~7GB of data.
+ ### I just want to run it with pre-created featues file:
+```
+wget http://unofficialpi.org/share/datahack/only_session_Features_no_log.csv
+wget https://raw.githubusercontent.com/YG15/DataHack2019/master/src/requirements.txt
+wget https://raw.githubusercontent.com/YG15/DataHack2019/master/src/final/submit_final.py
+sudo pip3 install -r requirements.txt
+python3 ./submit_final.py
+```
 
-The upload to collab takes about 30 mintues.
+The printout should be:
 
-1. [Open this notebook](https://github.com/YG15/DataHack2019/blob/master/src/notebook/The_whale_and_the_petunias_pipeline.ipynb) and connect github to google collab. You can also use this button: [Deploy to google Collab](https://colab.research.google.com/github/YG15/DataHack2019/blob/master/The_whale_and_the_petunias_pipeline.ipynb)
-2. 
+```
+{'member': 'The Whale and the Petunias', 'rank': 4, 'score': 0.8753833638145928}
+```
+
+ ### I want to create only_session_Features_no_log.csv on my own
+ 
+ Note: Make sure you have ~32GB of free ram for this, and it should run for about 10 mintues on our servers.
+
+```
+wget http://unofficialpi.org/share/datahack/only_session_Features_no_log.csv
+wget https://raw.githubusercontent.com/YG15/DataHack2019/master/src/requirements.txt
+wget https://raw.githubusercontent.com/YG15/DataHack2019/master/src/final/get_final_features.py
+sudo pip3 install -r requirements.txt
+python3 ./get_final_features.py
+```
 
  
+ ### Running the model - the method we used in the hackathon
  
+In order to run the model in the hackathon on sevral machines, we didn't have all access to a 30GB ram server, so we used google collab instead, that code is a litte messy, but you can still take a look at it. 
+
+The upload to collab takes about 30 mintues. Here is the notebook for that:
+
+[Open this notebook](https://github.com/YG15/DataHack2019/blob/master/src/notebook/The_whale_and_the_petunias_pipeline.ipynb) and connect github to google collab. You can also use this button: [Deploy to google Collab](https://colab.research.google.com/github/YG15/DataHack2019/blob/master/The_whale_and_the_petunias_pipeline.ipynb)
  
 
-### requirements
-
+You can use that notebook to see the thought process that went it to finally getting the cleaned up script above.
 
 
 ## Resources (Hebrew)
