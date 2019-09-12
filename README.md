@@ -43,7 +43,6 @@ The printout should be:
  Note: Make sure you have ~32GB of free ram for this, and it should run for about 10 mintues on our servers.
 
 ```
-wget http://unofficialpi.org/share/datahack/only_session_Features_no_log.csv
 wget https://raw.githubusercontent.com/YG15/DataHack2019/master/src/requirements.txt
 wget https://raw.githubusercontent.com/YG15/DataHack2019/master/src/final/get_final_features.py
 sudo pip3 install -r requirements.txt
